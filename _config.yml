@@ -1,0 +1,7 @@
+title: Rehab In A Pinch
+email: your-email@example.com
+description: >- # this means to ignore newlines until "baseurl:"
+  A hub for physiotherapy tools, research analysis, and running data.
+theme: minima
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://rehabinapinch/github.io"
