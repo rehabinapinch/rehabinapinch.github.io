@@ -1,7 +1,10 @@
-title: Rehab In A Pinch
-email: your-email@example.com
-description: >- # this means to ignore newlines until "baseurl:"
-  A hub for physiotherapy tools, research analysis, and running data.
-theme: minima
+title: @rehabinapinch
+email: rehabinapinch(at)gmail.com
+description: Physio Research & App Dashboard
+  A hub for research analysis and apps for running and climbing injuries
+remote_theme: pages-themes/minimal@v0.2.0
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://rehabinapinch.github.io"
+
+
+
