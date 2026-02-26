@@ -1,3 +1,4 @@
 title: Portfolio
 baseurl: "/rehabinapinch" # The name of your GitHub project
+remote_theme: pages-themes/minimal@v0.2.0
 url: "https://rehabinapinch.github.io"
