@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Run/Walk Program</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        select, input {
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            background-color: #ffc0cb;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+
+        button:hover {
+            background-color: #ff99a0;
+        }
+
+        #customOptions {
+            border: 2px solid #ddd;
+            padding: 15px;
+            margin-bottom: 20px;
+            background-color: #f9f9f9;
+        }
+
+        #programTable {
+            margin-top: 20px;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        #programTable, #programTable th, #programTable td {
+            border: 1px solid #ddd;
+        }
+
+        #programTable th, #programTable td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        .day-options {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .day-options label {
+            margin: 0;
+        }
+                    textarea {
+        width: 100%; /* Set width to 100% of the container */
+        height: 150px; /* Set a default height */
+        resize: none; /* Prevent resizing */
+        padding: 10px; /* Optional: for better text visibility */
+        box-sizing: border-box; /* Ensures padding is included in total width/height */
+    }
+
+    </style>
+</head>
+<body>
+    <h2>Custom Run/Walk Program</h2>
+
+    <!-- Custom Program Options -->
+    <div id="customOptions">
+        <!-- Input for each day's reps and run/walk ratio -->
+        <div class="day-options">
+            <label for="day1Reps">Day 1 Reps:</label>
+            <input type="number" id="day1Reps" value="3" min="1" max="10">
+            <label for="day1Ratio">Run/Walk Ratio (minutes):</label>
+            <input type="text" id="day1Ratio" value="1:1" placeholder="e.g., 2:1">
+        </div>
+
+        <div class="day-options">
+            <label for="day2Reps">Day 2 Reps:</label>
+            <input type="number" id="day2Reps" value="3" min="1" max="10">
+            <label for="day2Ratio">Run/Walk Ratio (minutes):</label>
+            <input type="text" id="day2Ratio" value="1:1" placeholder="e.g., 2:1">
+        </div>
+
+        <div class="day-options">
+            <label for="day3Reps">Day 3 Reps:</label>
+            <input type="number" id="day3Reps" value="3" min="1" max="10">
+            <label for="day3Ratio">Run/Walk Ratio (minutes):</label>
+            <input type="text" id="day3Ratio" value="1:1" placeholder="e.g., 2:1">
+        </div>
+
+        <div class="day-options">
+            <label for="day4Reps">Day 4 Reps:</label>
+            <input type="number" id="day4Reps" value="3" min="1" max="10">
+            <label for="day4Ratio">Run/Walk Ratio (minutes):</label>
+            <input type="text" id="day4Ratio" value="1:1" placeholder="e.g., 2:1">
+        </div>
+
+        <div class="day-options">
+            <label for="day5Reps">Day 5 Reps:</label>
+            <input type="number" id="day5Reps" value="3" min="1" max="10">
+            <label for="day5Ratio">Run/Walk Ratio (minutes):</label>
+            <input type="text" id="day5Ratio" value="1:1" placeholder="e.g., 2:1">
+        </div>
+    </div>
+
+    <!-- Buttons -->
+    <button onclick="generateProgram()">Generate Program</button>
+    <button onclick="resetProgram()">Reset Program</button>
+
+    <!-- Program Table -->
+    <table id="programTable">
+        <thead>
+            <tr>
+                <th>Day</th>
+                <th>Run/Walk Ratio</th>
+                <th>Reps and Total Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Program data will be generated here -->
+        </tbody>
+    </table>
+    </div>
+    
+    <div id="spacer"></div>
+
+    <table id="programTable"></table>
+
+    <div class="page-break"></div>
+
+    <div id="recommendationsSection">
+        <h2>Recommendations</h2>
+        <textarea id="recommendations" placeholder="Enter additional notes or changes...">This is a run/walk program to help with load management and incrementally assist you in getting back to your running baseline. 
+
+Recommendations:
+
+Walk/Run Program:
+Increasing cadence:
+Surfaces:
+Exercises: Daily 8-10 reps x 3 sets
+Pain Threshold (0/10):
+Additional Notes:</textarea>
+        <button onclick="generateFormalRecommendations()">Generate</button>
+    </div>
+
+    <div id="formalRecommendations"></div>
+
+    <script>
+        function resetProgram() {
+            document.getElementById("day1Reps").value = 3;
+            document.getElementById("day1Ratio").value = "1:1";
+            document.getElementById("day2Reps").value = 3;
+            document.getElementById("day2Ratio").value = "1:1";
+            document.getElementById("day3Reps").value = 3;
+            document.getElementById("day3Ratio").value = "1:1";
+            document.getElementById("day4Reps").value = 3;
+            document.getElementById("day4Ratio").value = "1:1";
+            document.getElementById("day5Reps").value = 3;
+            document.getElementById("day5Ratio").value = "1:1";
+            document.getElementById("programTable").getElementsByTagName('tbody')[0].innerHTML = "";
+        }
+
+        function generateProgram() {
+            const tableBody = document.getElementById("programTable").getElementsByTagName('tbody')[0];
+            tableBody.innerHTML = ""; // Clear previous data
+
+            // Collect data for each day
+            const program = [
+                {
+                    day: 1,
+                    reps: parseInt(document.getElementById("day1Reps").value),
+                    ratio: document.getElementById("day1Ratio").value
+                },
+                {
+                    day: 2,
+                    reps: parseInt(document.getElementById("day2Reps").value),
+                    ratio: document.getElementById("day2Ratio").value
+                },
+                {
+                    day: 3,
+                    reps: parseInt(document.getElementById("day3Reps").value),
+                    ratio: document.getElementById("day3Ratio").value
+                },
+                {
+                    day: 4,
+                    reps: parseInt(document.getElementById("day4Reps").value),
+                    ratio: document.getElementById("day4Ratio").value
+                },
+                {
+                    day: 5,
+                    reps: parseInt(document.getElementById("day5Reps").value),
+                    ratio: document.getElementById("day5Ratio").value
+                }
+            ];
+
+            program.forEach(day => {
+                const row = tableBody.insertRow();
+                const runWalkParts = day.ratio.split(":").map(Number);
+                const runTime = runWalkParts[0];
+                const walkTime = runWalkParts[1];
+                const totalTime = (runTime + walkTime) * day.reps;
+
+                row.insertCell(0).textContent = `Day ${day.day}`;
+                row.insertCell(1).textContent = `${runTime} min run / ${walkTime} min walk`;
+                row.insertCell(2).textContent = `Reps: ${day.reps} - Total Time: ${totalTime} minutes`;
+            });
+        }
+                        function generateFormalRecommendations() {
+            const recommendations = document.getElementById('recommendations').value;
+            const formattedText = recommendations
+                .replace(/\n/g, "<br>")
+                .replace(/(Recommendations:)/g, "<strong>$1</strong>");
+            
+            document.getElementById('formalRecommendations').innerHTML = formattedText;
+            document.getElementById('recommendationsSection').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
