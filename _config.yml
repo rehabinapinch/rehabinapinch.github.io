@@ -1,4 +1,5 @@
-title: Portfolio
-baseurl: "/rehabinapinch" # The name of your GitHub project
-remote_theme: pages-themes/cayman@v0.2.0
-url: "https://rehabinapinch.github.io"
+title: @rehabinapinch
+description: Physiotherapist & Developer Dashboard
+remote_theme: pages-themes/architect@v0.2.0
+plugins:
+  - jekyll-remote-theme
