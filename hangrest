@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Climbing Rehab Program</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #333;
+        }
+        label, input, select, button, textarea {
+            display: block;
+            margin: 10px auto;
+            padding: 10px;
+            font-size: 16px;
+            width: 80%;
+            max-width: 300px;
+        }
+        button {
+            background-color: lightpink;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #ff9999;
+        }
+        textarea {
+            width: 80%;
+            max-width: 600px;
+            height: 150px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+        /* Hide recommendations section and button when printing */
+        @media print {
+            #recommendationsSection, #formalRecommendations {
+                display: none;
+            }
+            .page-break {
+                page-break-before: always;
+            }
+        }
+        /* Spacer for layout */
+        #spacer {
+            height: 30px; /* Adjust height as needed */
+        }
+    </style>
+</head>
+<body>
+    <h1>Climbing Rehab Program</h1>
+    
+    <!-- Form input for Work/Rest Ratio and Initial Hang Time -->
+    <div id="inputsSection">
+        <label for="initialHangTime">Initial Hang Time (seconds):</label>
+        <input type="number" id="initialHangTime" placeholder="Enter Time">
+        
+        <label for="workRestRatio">Select Work/Rest Ratio:</label>
+        <select id="workRestRatio">
+            <option value="1:2">1:2</option>
+            <option value="1:3">1:3</option>
+            <option value="1:4">1:4</option>
+            <option value="1:5">1:5</option>
+            <option value="1:6">1:6</option>
+            <option value="1:7">1:7</option>
+        </select>
+        
+        <!-- Button to Generate the Program -->
+        <button onclick="generateProgram()">Create Program</button>
+    </div>
+    
+    <!-- Spacer to add space between the title and table -->
+    <div id="spacer"></div>
+    
+    <!-- Table to display the generated program -->
+    <table id="programTable">
+        <!-- Table will be populated here -->
+    </table>
+    
+    <!-- Page break for printing -->
+    <div class="page-break"></div>
+    
+    <!-- Recommendations and editable text area -->
+    <div id="recommendationsSection">
+        <h2>Recommendations</h2>
+        <textarea id="recommendations" placeholder="Enter additional notes or changes...">This is a climbing rehab program to help with load management and incrementally assist you in improving your climbing performance. Each week, the hang time and rest time are adjusted based on the work-to-rest ratio.
+
+Recommendations:
+
+Work/Rest Ratio:
+Increasing hang time:
+Exercises: Daily 5-7 reps x 3 sets
+Pain Threshold (0/10):
+Additional Notes:</textarea>
+        
+        <!-- Button to generate formal recommendations -->
+        <button onclick="generateFormalRecommendations()">Generate</button>
+    </div>
+    
+    <!-- Formal Recommendations Display -->
+    <div id="formalRecommendations"></div>
+    
+    <script>
+        function generateProgram() {
+            const ratio = document.getElementById('workRestRatio').value.split(':');
+            const workRatio = parseInt(ratio[0]);
+            const restRatio = parseInt(ratio[1]);
+            const initialHangTime = parseFloat(document.getElementById('initialHangTime').value);
+
+            // Define repetitions for each week
+            const week1Reps = [3, 5, 3];
+            const week2Reps = [4, 6, 4];
+            const week3Reps = [3, 5, 3];
+
+            const week1Schedule = generateWeekSchedule(initialHangTime, workRatio, restRatio, "Week 1", week1Reps);
+            const week2Schedule = generateWeekSchedule(initialHangTime * 1.5, workRatio * 1.5, restRatio * 1.5, "Week 2", week2Reps);
+            const week3Schedule = generateWeekSchedule(initialHangTime * 2, workRatio * 2, restRatio * 2, "Week 3", week3Reps);
+
+            const table = document.getElementById('programTable');
+            table.innerHTML = ''; // Clear any previous data
+            
+            // Add table headers
+            const headers = ['Day', 'Hang Time (s)', 'Rest Time (s)', 'Repetitions'];
+            let headerRow = table.insertRow();
+            headers.forEach(header => {
+                let th = document.createElement('th');
+                th.textContent = header;
+                headerRow.appendChild(th);
+            });
+            
+            // Add week 1, week 2, and week 3 schedules
+            week1Schedule.concat(week2Schedule, week3Schedule).forEach(rowData => {
+                let row = table.insertRow();
+                rowData.forEach(cellData => {
+                    let cell = row.insertCell();
+                    cell.textContent = cellData;
+                });
+            });
+
+            // Hide input fields and button after generating the program
+            document.getElementById('inputsSection').style.display = 'none';
+            
+            // Add space between title and table
+            document.getElementById('spacer').style.height = '30px'; // Adjust height if needed
+        }
+
+        function generateWeekSchedule(initialHangTime, workRatio, restRatio, weekLabel, weekReps) {
+            const schedule = [];
+            const days = ['Day 1', 'Day 2', 'Day 3'];
+            let currentHangTime = initialHangTime;
+            schedule.push([`${weekLabel} Schedule`, '', '', '']); // Add week label row
+
+            days.forEach((day, index) => {
+                const restTime = (currentHangTime * restRatio) / workRatio;
+                schedule.push([day, currentHangTime.toFixed(2), restTime.toFixed(2), weekReps[index]]);
+                currentHangTime += 2; // Increment hang time for next day
+            });
+            return schedule;
+        }
+
+        // Function to generate formal recommendations and hide the editable textarea and heading
+        function generateFormalRecommendations() {
+            const recommendations = document.getElementById('recommendations').value;
+            const formattedText = recommendations
+                .replace(/\n/g, "<br>") // Replace newlines with <br> for HTML formatting
+                .replace(/(Recommendations:)/g, "<strong>$1</strong>"); // Bold the word "Recommendations:"
+            
+            document.getElementById('formalRecommendations').innerHTML = formattedText;
+
+            // Hide the recommendations section and generate button after generating recommendations
+            document.getElementById('recommendationsSection').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
