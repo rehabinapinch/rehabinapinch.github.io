@@ -6,7 +6,7 @@ layout: default
 Physical therapist, clinical instructor & developer.
 
 ### 🚀 Apps & Tools
-* **[Return2Run App](./run-walk.html)**
+* **[Return2Run App](rwc)**
 * **[52 Journal Club App](./physio-research-dashboard/)**
 * **[Running Shoe Spec Table](./shoe-reviews)**
 
