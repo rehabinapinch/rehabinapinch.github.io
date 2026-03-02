@@ -1,32 +1,16 @@
 ---
 layout: default
-title: Physio Research & App Dashboard
 ---
 
 # Welcome to My Portfolio
-**Physical therapist, clinical instructor & developer** focused on rehab tech and clinical research.
-
----
+Physical therapist, clinical instructor & developer.
 
 ### 🚀 Apps & Tools
-* **[Journal Club Dashboard](./physio-research-dashboard/)**
-    *Automated PubMed analysis via Gemini API.*
-* **[Pocket Physio](https://pocketphysio.org)**
-    *Exercise, differential diagnosis, and note generator.*
-* **[Run/Walk Rehab](./run-walk.html)**
-    *Clinical load management tool with custom presets.*
-* **[Hangboard Rehab](./hangboard-rehab.html)**
-    *Custom loading programs for climbers.*
+* **[Return2Run App](./run-walk.html)**
+* **[52 Journal Club App](./physio-research-dashboard/)**
 
-### 📊 Data & Research
-* **[Running Shoe Spec Table]({{ site.baseurl }}/shoe-reviews)**
-* **[Clinical Visualizations]({{ site.baseurl }}/data-lab)**
-
-### ✍️ Latest from Substack
-[View all articles on Runalytics](https://runalytics.substack.com/)
-
----
+### 📊 Research
+* [Running Shoe Spec Table](./shoe-reviews)
 
 ### 📫 Contact
-* **LinkedIn:** [physiotools](https://www.linkedin.com/in/physiotools/)
-* **Email:** `rehabinapinch@gmail.com`
+[LinkedIn](https://www.linkedin.com/in/physiotools/) | rehabinapinch@gmail.com
