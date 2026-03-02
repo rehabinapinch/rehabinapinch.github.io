@@ -17,7 +17,7 @@ Physical therapist, clinical instructor & developer.
 * **Physio Research Through Charts**
 
 ### 📝 Vita
-* Founder and Physical Therapist at @rehabinapinch | [stridewell physiotherapy](https://runrehab.pro/) 2025 - Present
+* Founder and Physical Therapist at @rehabinapinch w/ ReviveLab 2025 - Present
 * Clinical Instructor at The Running Clinic 2022 - Present
 * Cardston Medical Clinic 2024-2026
 * Calgary Home Physiotherapy 2024-2025
@@ -30,4 +30,4 @@ Physical therapist, clinical instructor & developer.
   
 
 ### 📫 Contact
-[LinkedIn](https://www.linkedin.com/in/physiotools/) | rehabinapinch@gmail.com
+[LinkedIn](https://www.linkedin.com/in/physiotools/) | rehabinapinch (at) gmail
