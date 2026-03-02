@@ -1,0 +1,16 @@
+---
+---
+@import "{{ site.theme }}";
+
+body {
+  background-color: #0d1117; /* GitHub's Dark Mode Black */
+  color: #c9d1d9;            /* Soft White */
+}
+
+header {
+  border-bottom: 1px solid #30363d;
+}
+
+a {
+  color: #58a6ff; /* Professional Blue */
+}
