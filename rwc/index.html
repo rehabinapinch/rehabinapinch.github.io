@@ -14,6 +14,7 @@
             --text-main: #1e293b;
             --text-muted: #64748b;
             --border: #e2e8f0;
+            --accent: #eff6ff;
         }
 
         body {
@@ -38,6 +39,34 @@
             color: var(--text-main);
             border-bottom: 2px solid var(--border);
             padding-bottom: 10px;
+        }
+
+        /* New Resource Styles */
+        .resource-box {
+            background: var(--accent);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+
+        .resource-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            margin-bottom: 10px;
+        }
+
+        .resource-link:hover { text-decoration: underline; }
+
+        .rwc-guide {
+            font-size: 0.9rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 10px;
         }
 
         .input-grid {
@@ -80,14 +109,8 @@
 
         .btn-primary { background-color: var(--primary); color: white; }
         .btn-primary:hover { background-color: var(--primary-hover); }
-        
         .btn-success { background-color: var(--success); color: white; }
-        
-        .btn-outline {
-            background-color: transparent;
-            border: 1px solid var(--border);
-            color: var(--text-muted);
-        }
+        .btn-outline { background-color: transparent; border: 1px solid var(--border); color: var(--text-muted); }
 
         table {
             width: 100%;
@@ -105,10 +128,7 @@
             border-bottom: 2px solid var(--border);
         }
 
-        td {
-            padding: 12px;
-            border-bottom: 1px solid var(--border);
-        }
+        td { padding: 12px; border-bottom: 1px solid var(--border); }
 
         textarea {
             width: 100%;
@@ -149,7 +169,31 @@
 
 <div class="container">
     <div class="no-print">
-        <h2 id="setupTitle">Custom Run/Walk Program</h2>
+        <h2 id="setupTitle">Return2Run Program Creator</h2>
+        
+        <div class="resource-box">
+            <a href="https://docs.google.com/document/d/e/2PACX-1vTD7OrjAqxRrib91lFIWucLcjfIaGYcCNg_ll_douKSE5AKZgp3BNonlvZ-1gjVRPguVI62M6DSRFgf/pub" 
+               target="_blank" class="resource-link">
+               📄 View Clinical White Paper (Protocol Background)
+            </a>
+            <div class="rwc-guide">
+                <div>
+                    <strong>General Instructions:</strong>
+                    <ul style="margin: 5px 0; padding-left: 20px;">
+                        <li>Keep run pace easy (Zone 2, RPE 3-4)</li>
+                        <li>Maintain walk pace as active recovery</li>
+                        <li>Follow the 0-1/10 pain rule</li>
+                    </ul>
+                </div>
+                <div>
+                    <strong>General Progression:</strong>
+                    <ul style="margin: 5px 0; padding-left: 20px;">
+                        <li>If Day 1 is pain-free, proceed to Day 2</li>
+                        <li>If pain >1/10, repeat previous stage</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div id="editorSection" class="no-print">
@@ -184,7 +228,7 @@ Recommendations:
 • Increasing cadence: 
 • Surfaces: 
 • Exercises: Daily 8-10 reps x 3 sets
-• Pain Threshold (0/10): 
+• Pain Threshold (0-2/10): 
 • Additional Notes:</textarea>
         <button class="btn-primary" onclick="generateFormal()">Finalize Recommendations</button>
     </div>
@@ -239,19 +283,17 @@ Recommendations:
     }
 
     function generateFormal() {
-        generateProgram(); // Sync table
-
+        generateProgram();
         const text = document.getElementById('recommendations').value;
         const formalDiv = document.getElementById('formalRecommendations');
-        
         formalDiv.innerHTML = `<h3>Plan Summary & Clinical Notes</h3>` + text.replace(/\n/g, "<br>");
         formalDiv.style.display = 'block';
-        
-        // Toggle Visibility
         document.getElementById('editorSection').classList.add('hidden');
         document.getElementById('recommendationsSection').classList.add('hidden');
         document.getElementById('setupTitle').classList.add('hidden');
         document.getElementById('finalActions').classList.remove('hidden');
+        // Hide the resource box on final view
+        document.querySelector('.resource-box').classList.add('hidden');
     }
 
     function backToEditor() {
@@ -260,6 +302,7 @@ Recommendations:
         document.getElementById('setupTitle').classList.remove('hidden');
         document.getElementById('finalActions').classList.add('hidden');
         document.getElementById('formalRecommendations').style.display = 'none';
+        document.querySelector('.resource-box').classList.remove('hidden');
     }
 
     function resetProgram() {
@@ -268,9 +311,7 @@ Recommendations:
             const table = document.getElementById("programTable");
             table.querySelector('tbody').innerHTML = "";
             table.style.display = "none";
-            
             backToEditor();
-            
             document.getElementById('recommendations').value = `This program assists with load management to return to your running baseline.\n\nRecommendations:\n• Walk/Run Program: \n• Increasing cadence: \n• Surfaces: \n• Exercises: Daily 8-10 reps x 3 sets\n• Pain Threshold (0/10): \n• Additional Notes:`;
         }
     }
