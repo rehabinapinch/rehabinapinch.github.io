@@ -24,8 +24,6 @@ Physical therapist, clinical instructor & developer.
 * **2015** | BKin — University of British Columbia
 
 > **Certifications:** Dry Needling (Acupuncture Canada) • Vestibular & Concussion Rehab (University of Alberta)
----
-> **Certifications:** Dry Needling (Acupuncture Canada) • Vestibular & Concussion Rehab (University of Alberta)
 
 ### 📫 [Contact](#)
 [LinkedIn](https://www.linkedin.com/in/physiotools/) | rehabinapinch (at) gmail.com
