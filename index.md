@@ -23,12 +23,10 @@ Clinical Experience: Started in 2015 as a kinesiologist, followed by years in ac
 Professional and Community Involvement: He is a clinical instructor with The Running Clinic and has worked closely with the YYC Run Crew and Bolder Climbing Community.
 
 Recent Ventures
-2025: Expanded into rural outpatient orthopedics in Cardston and launched a private telehealth practice.
+2025: Expanded into rural outpatient orthopedics in Cardston
 
 2026 (Present): Opened his own practice in Calgary in partnership with ReviveLab, offering specialized, functional assessments for high-performance athletes.
 
-Personal Philosophy
-Walden is dedicated to empowering athletes of all levels—from novices to elites—through load and pain management. Outside of the clinic, he stays active in the community by trail running, bouldering, and translating new research for other clinicians.
 
 ### 📫 [Contact](#)
 [LinkedIn](https://www.linkedin.com/in/physiotools/) | rehabinapinch (at) gmail.com
