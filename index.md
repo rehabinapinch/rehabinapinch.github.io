@@ -2,7 +2,7 @@
 layout: default
 ---
 
-# Welcome to My Portfolio
+Welcome to My Portfolio
 Physical therapist, clinical instructor & developer.
 
 ### 🚀 Apps & Tools
