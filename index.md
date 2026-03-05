@@ -6,9 +6,9 @@ layout: default
 Physical therapist, clinical instructor & developer.
 
 ### 🚀 Apps & Tools
-* **[Return2Run App](./rwc/)**
-* **[52 Journal Club App](./physio-research-dashboard/)**
-* **[Running Shoe Spec Table](./shoe-reviews)**
+* **[Return2Run App](./rwc/)** - Return-to-Running Progam Creator
+* **[52 Journal Club App](./physio-research-dashboard/)** - Pubmed API Summarized Research Trawler
+* **[Pocket Physio App](https://rehabinapinch.github.io/PocketPhysio/)** - Exercise Prescription App
 
 
 ### 📊 Teaching & Writing
