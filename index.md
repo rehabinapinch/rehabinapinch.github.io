@@ -11,19 +11,24 @@ Physical therapist, clinical instructor & developer.
 * **[Substack](https://runalytics.substack.com/)** - Runalytics Data & Insights
 * **Physio Research Through Charts** - Visualizing Clinical Data
 
-### 📝 [Professional Vita](#)
+### 📝 [About Me](#)
 
-* **2025 – Pres** | Founder & PT @rehabinapinch w/ ReviveLab
-* **2022 – Pres** | Clinical Instructor at The Running Clinic
-* **2024 – 2026** | Physical Therapist at Cardston Medical Clinic
-* **2024 – 2025** | Physical Therapist at Calgary Home Physiotherapy
-* **2023** | Physical Therapist at Boulder Health and Performance
-* **Earlier** | Acute Care PT at Fraser Health (ICU, Surgery, Nephro, Cardio, Ortho)
-* **2019** | MPT — University of British Columbia
-* **2017** | MSc (Thesis) — UBC (Quality Indicators for Pulmonary Rehab)
-* **2015** | BKin — University of British Columbia
+Walden is a highly experienced physical therapist and clinical instructor specializing in sports rehabilitation for runners and climbers. With over a decade in the industry, his approach focuses on bridging the gap between clinical science and functional movement.
 
-> **Certifications:** Dry Needling (Acupuncture Canada) • Vestibular & Concussion Rehab (University of Alberta)
+Professional Background
+Education: Holds two Master’s degrees from UBC (Pulmonary Rehabilitation and Physical Therapy).
+
+Clinical Experience: Started in 2015 as a kinesiologist, followed by years in acute hospital care (Critical Care, Orthopedics, and Emergency) and geriatric precepting.
+
+Professional and Community Involvement: He is a clinical instructor with The Running Clinic and has worked closely with the YYC Run Crew and Bolder Climbing Community.
+
+Recent Ventures
+2025: Expanded into rural outpatient orthopedics in Cardston and launched a private telehealth practice.
+
+2026 (Present): Opened his own practice in Calgary in partnership with ReviveLab, offering specialized, functional assessments for high-performance athletes.
+
+Personal Philosophy
+Walden is dedicated to empowering athletes of all levels—from novices to elites—through load and pain management. Outside of the clinic, he stays active in the community by trail running, bouldering, and translating new research for other clinicians.
 
 ### 📫 [Contact](#)
 [LinkedIn](https://www.linkedin.com/in/physiotools/) | rehabinapinch (at) gmail.com
