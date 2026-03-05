@@ -18,7 +18,7 @@ Physical therapist, clinical instructor & developer.
 | **2025 – Pres** | **Founder & PT** | @rehabinapinch w/ ReviveLab |
 | **2022 – Pres** | **Clinical Instructor** | The Running Clinic |
 | **2024 – 2026** | **Physical Therapist** | Cardston Medical Clinic |
-| **2024 – 2025** | **Home Physiotherapist** | Calgary Home Physiotherapy |
+| **2024 – 2025** | **Physical Therapist** | Calgary Home Physiotherapy |
 | **2023** | **Physical Therapist** | Boulder Health and Performance |
 | **Earlier** | **Acute Care PT** | Fraser Health (ICU, Surgery, Nephro, Cardio, Ortho) |
 | **2019** | **MPT** | University of British Columbia |
