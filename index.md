@@ -18,17 +18,14 @@ Physical therapist, clinical instructor & developer.
 | 2022 – Pres | Clinical Instructor | The Running Clinic |
 | 2024 – 2026 | Physical Therapist | Cardston Medical Clinic |
 | 2024 – 2025 | Home Physiotherapist | Calgary Home Physiotherapy |
-| 2023 | Physical Therapist | Boulder Health and Performance |
-| Earlier | Acute Care PT | Fraser Health (ICU, Surgery, Nephro, Cardio, Ortho) |
+| 2023 – 2024 | Physical Therapist | Boulder Health and Performance |
+| 2019 – 2022 | Physical Therapist | Westwood Physiotherapy |
+| 2019 – 2022 | Acute Care PT | Fraser Health (ICU, Surgery, Nephro, Cardio, Ortho) |
 | 2019 | MPT | University of British Columbia |
 | 2017 | MSc (Thesis) | UBC - Quality Indicators for Pulmonary Rehab |
 | 2015 | BKin | University of British Columbia |
 
 ---
-
-### 🛠️ [Tech Stack](#)
-![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white) ![JavaScript](https://img.shields.io/badge/javascript-%23F7DF1E.svg?style=for-the-badge&logo=javascript&logoColor=black) ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
-
 > **Certifications:** Dry Needling (Acupuncture Canada) • Vestibular & Concussion Rehab (University of Alberta)
 
 ### 📫 [Contact](#)
