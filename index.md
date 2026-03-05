@@ -4,7 +4,7 @@ Physical therapist, clinical instructor & developer.
 ### 🚀 [Apps & Tools](#)
 * **[Return2Run App](./rwc/)** - Return-to-Running Program Creator
 * **[52 Journal Club App](./physio-research-dashboard/)** - Pubmed API Summarized Research Trawler
-* **[Pocket Physio App](https://rehabinapinch.github.io/PocketPhysio/)** - Exercise Prescription App
+* **[Pocket Physio App](https://rehabinapinch.github.io/1)** - Exercise Prescription App
 
 ### 📊 [Teaching & Writing](#)
 * **[The Running Clinic](https://therunningclinic.com/runners/upcoming-courses-and-public-lectures/)** - Clinical Instructor
