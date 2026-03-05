@@ -12,19 +12,18 @@ Physical therapist, clinical instructor & developer.
 * **Physio Research Through Charts** - Visualizing Clinical Data
 
 ### 📝 [Professional Vita](#)
-| Period | Role / Education | Institution / Organization |
-| :--- | :--- | :--- |
-| 2025 – Pres | Founder & PT | @rehabinapinch w/ ReviveLab |
-| 2022 – Pres | Clinical Instructor | The Running Clinic |
-| 2024 – 2026 | Physical Therapist | Cardston Medical Clinic |
-| 2024 – 2025 | Home Physiotherapist | Calgary Home Physiotherapy |
-| 2023 – 2024 | Physical Therapist | Boulder Health and Performance |
-| 2019 – 2022 | Physical Therapist | Westwood Physiotherapy |
-| 2019 – 2022 | Acute Care PT | Fraser Health (ICU, Surgery, Nephro, Cardio, Ortho) |
-| 2019 | MPT | University of British Columbia |
-| 2017 | MSc (Thesis) | UBC - Quality Indicators for Pulmonary Rehab |
-| 2015 | BKin | University of British Columbia |
 
+* **2025 – Pres** | Founder & PT @rehabinapinch w/ ReviveLab
+* **2022 – Pres** | Clinical Instructor at The Running Clinic
+* **2024 – 2026** | Physical Therapist at Cardston Medical Clinic
+* **2024 – 2025** | Home Physiotherapist at Calgary Home Physiotherapy
+* **2023** | Physical Therapist at Boulder Health and Performance
+* **Earlier** | Acute Care PT at Fraser Health (ICU, Surgery, Nephro, Cardio, Ortho)
+* **2019** | MPT — University of British Columbia
+* **2017** | MSc (Thesis) — UBC (Quality Indicators for Pulmonary Rehab)
+* **2015** | BKin — University of British Columbia
+
+> **Certifications:** Dry Needling (Acupuncture Canada) • Vestibular & Concussion Rehab (University of Alberta)
 ---
 > **Certifications:** Dry Needling (Acupuncture Canada) • Vestibular & Concussion Rehab (University of Alberta)
 
