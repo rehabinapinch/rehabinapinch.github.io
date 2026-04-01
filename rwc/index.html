@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Return2Run Program Creator</title>
+    <title>Return2Run Toolkit</title>
     <style>
         :root {
             --primary: #4f46e5;
@@ -15,309 +15,320 @@
             --text-muted: #64748b;
             --border: #e2e8f0;
             --accent: #eff6ff;
+            --pink: #ffd9e6;
+            --blue: #cfeaff;
+            --radius: 12px;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
         }
 
         body {
             font-family: 'Inter', -apple-system, sans-serif;
-            background-color: var(--bg);
+            background: linear-gradient(180deg, var(--pink), #f7fbff);
             color: var(--text-main);
             line-height: 1.6;
             margin: 0;
-            padding: 40px 20px;
+            padding: 20px;
         }
 
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             background: var(--card-bg);
             padding: 32px;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            box-sizing: border-box; /* Ensures padding doesn't push width out */
         }
 
-        h2, h3 {
-            color: var(--text-main);
-            border-bottom: 2px solid var(--border);
-            padding-bottom: 10px;
-        }
+        header { margin-bottom: 24px; text-align: center; }
+        h1 { margin: 0; color: #b23f6a; font-size: 1.8rem; }
+        .subtitle { color: var(--text-muted); font-size: 0.9rem; }
 
-        /* New Resource Styles */
-        .resource-box {
-            background: var(--accent);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 25px;
-        }
-
-        .resource-link {
-            display: inline-flex;
-            align-items: center;
-            color: var(--primary);
-            font-weight: 600;
-            text-decoration: none;
-            margin-bottom: 10px;
-        }
-
-        .resource-link:hover { text-decoration: underline; }
-
-        .rwc-guide {
-            font-size: 0.9rem;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin-top: 10px;
-        }
-
-        .input-grid {
-            display: grid;
-            gap: 15px;
-            margin-bottom: 25px;
-        }
-
-        .day-row {
-            display: grid;
-            grid-template-columns: 80px 1fr 1fr;
-            align-items: center;
-            gap: 15px;
-            padding: 12px;
-            background: #f1f5f9;
-            border-radius: 8px;
-        }
-
-        input {
-            padding: 8px 12px;
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            font-size: 0.95rem;
-        }
-
-        .button-group {
+        .tab-group {
             display: flex;
-            gap: 12px;
-            margin-bottom: 30px;
+            gap: 8px;
+            margin-bottom: 25px;
+            background: #f1f5f9;
+            padding: 6px;
+            border-radius: 10px;
         }
 
-        button {
-            padding: 10px 20px;
-            border-radius: 6px;
+        .tab-btn {
+            flex: 1;
+            padding: 12px;
             border: none;
+            border-radius: 8px;
+            background: transparent;
             font-weight: 600;
+            color: var(--text-muted);
             cursor: pointer;
             transition: all 0.2s;
         }
 
-        .btn-primary { background-color: var(--primary); color: white; }
-        .btn-primary:hover { background-color: var(--primary-hover); }
-        .btn-success { background-color: var(--success); color: white; }
-        .btn-outline { background-color: transparent; border: 1px solid var(--border); color: var(--text-muted); }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-            display: none;
+        .tab-btn.active {
+            background: white;
+            color: var(--primary);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
 
-        th {
-            background: #f8fafc;
-            text-align: left;
-            padding: 12px;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            border-bottom: 2px solid var(--border);
-        }
-
-        td { padding: 12px; border-bottom: 1px solid var(--border); }
-
-        textarea {
-            width: 100%;
-            height: 180px;
-            padding: 12px;
-            border-radius: 8px;
+        .resource-box {
+            background: var(--accent);
             border: 1px solid var(--border);
-            font-family: inherit;
-            margin-bottom: 15px;
-            box-sizing: border-box;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            font-size: 0.85rem;
         }
 
-        #formalRecommendations {
-            background: #fffbeb;
-            border-left: 4px solid #f59e0b;
-            padding: 20px;
-            border-radius: 4px;
-            margin-top: 20px;
-            display: none;
+        .button-group { display: flex; gap: 10px; margin: 20px 0; }
+        button { padding: 10px 18px; border-radius: 8px; border: none; font-weight: 600; cursor: pointer; transition: 0.2s; }
+        .btn-primary { background: var(--primary); color: white; }
+        .btn-primary:hover { background: var(--primary-hover); }
+        .btn-outline { background: white; border: 1px solid var(--border); color: var(--text-muted); }
+        .btn-outline:hover { background: #f8fafc; }
+
+        .prog-card { border: 1px solid var(--border); border-radius: 10px; margin-bottom: 12px; overflow: hidden; }
+        .prog-head { 
+            padding: 12px 15px; background: linear-gradient(90deg, var(--blue), #fff); 
+            display: flex; justify-content: space-between; cursor: pointer; font-weight: 600;
+        }
+        .prog-body { padding: 15px; display: none; background: #fff; border-top: 1px solid var(--border); }
+        .prog-card.open .prog-body { display: block; }
+        
+        .input-grid { display: grid; gap: 10px; margin-bottom: 20px; }
+        .day-row { 
+            display: grid; grid-template-columns: 80px 1fr 1fr; 
+            align-items: center; gap: 15px; padding: 12px; background: #f8fafc; border-radius: 8px; 
+        }
+        input { padding: 8px 12px; border: 1px solid var(--border); border-radius: 6px; width: 100%; box-sizing: border-box; }
+
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; background: white; }
+        th { background: #f1f5f9; text-align: left; padding: 12px; font-size: 0.8rem; text-transform: uppercase; border-bottom: 2px solid var(--border); }
+        td { padding: 12px; border-bottom: 1px solid var(--border); font-size: 0.95rem; }
+
+        /* LOCKED TEXTAREA */
+        textarea { 
+            width: 100%; 
+            max-width: 100%; 
+            height: 120px; 
+            padding: 12px; 
+            border-radius: 8px; 
+            border: 1px solid var(--border); 
+            font-family: inherit; 
+            margin-top: 10px; 
+            box-sizing: border-box; 
+            resize: none; /* Prevents manual expansion past borders */
         }
 
         .hidden { display: none !important; }
 
         @media print {
-            .no-print { display: none !important; }
             body { background: white; padding: 0; }
-            .container { box-shadow: none; border: none; width: 100%; max-width: 100%; }
-            #programTable { display: table !important; }
-            #formalRecommendations { 
-                display: block !important; 
-                background: white !important; 
-                border: 1px solid #ccc !important;
+            .container { box-shadow: none; border: none; width: 100%; max-width: 100%; padding: 0; }
+            .no-print, .tab-group, .resource-box, .button-group, header, .input-grid, .prog-head span { 
+                display: none !important; 
             }
+            .prog-card:not(.open) { display: none !important; }
+            .prog-card.open { border: none; margin-bottom: 30px; page-break-inside: avoid; }
+            .prog-body { display: block !important; padding: 0; border: none; }
+            .prog-head { background: none; padding: 0; font-size: 1.4rem; border-bottom: 2px solid #000; margin-bottom: 10px; cursor: default; }
+            table { border: 1px solid #eee; width: 100%; }
+            textarea { 
+        border: none; 
+        padding: 0; 
+        font-size: 1rem; 
+        height: 30; /* Force height to fit content */
+        overflow: visible !important; /* Ensure no text is hidden */
+        display: block;
+        width: 100%;
+        white-space: pre-wrap; /* Maintains your line breaks/bullets */
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <div class="no-print">
-        <h2 id="setupTitle">Return2Run Program Creator</h2>
-        <h5>Created by Waldo Cheung PT</h5>
-        
-        <div class="resource-box">
-            <a href="https://open.substack.com/pub/runalytics/p/clinical-guide-for-creating-return?r=1w059v&utm_campaign=post&utm_medium=web&showWelcomeOnShare=true" 
-               target="_blank" class="resource-link">
-               📄 View Clinical White Paper (Protocol Background)
-            </a>
-            <div class="rwc-guide">
-                <div>
-                    <strong>General Instructions:</strong>
-                    <ul style="margin: 5px 0; padding-left: 20px;">
-                        <li>Keep run pace easy (Zone 2, RPE 3-4)</li>
-                        <li>Maintain walk pace as active recovery</li>
-                        <li>Follow the 0-1/10 pain rule</li>
-                    </ul>
-                </div>
-                <div>
-                    <strong>General Progression:</strong>
-                    <ul style="margin: 5px 0; padding-left: 20px;">
-                        <li>If Day 1 is pain-free, proceed to Day 2</li>
-                        <li>If pain >1/10, repeat previous stage</li>
-                    </ul>
-                </div>
+    <header class="no-print">
+        <h1>Return2Run Toolkit</h1>
+        <div class="subtitle">App Created by <a href="https://www.linkedin.com/in/physiotools/">Waldo Cheung PT</a></div>
+        <div class="subtitle">Presets Created by <a href="https://therunningclinic.com/">The Running Clinic</a></div>
+    </header>
+
+    <div class="tab-group no-print">
+        <button id="btn-preset" class="tab-btn active" onclick="switchTab('preset-view')">Return2Run Presets</button>
+        <button id="btn-custom" class="tab-btn" onclick="switchTab('custom-view')">Custom Creator</button>
+    </div>
+
+    <div id="preset-view" class="tab-content">
+        <div class="resource-box no-print">
+            <strong>Instructions:</strong> Select a program, then <strong>expand the week(s)</strong> you wish to print.
+            <div style="margin-top:10px; display:flex; gap:10px;">
+                <select id="profile" style="flex:1; padding:10px; border-radius:6px; border:1px solid var(--border);">
+                    <option value="minorInjury">Minor Injury (3 Weeks)</option>
+                    <option value="majorInjury">Major Injury (8 Weeks)</option>
+                    <option value="eliteAthlete">Elite Athlete (2 Weeks)</option>
+                </select>
+                <button class="btn-primary" onclick="renderPreset()">Load Program</button>
+                <button class="btn-outline" onclick="resetPreset()">Reset Selection</button>
             </div>
         </div>
-    </div>
-
-    <div id="editorSection" class="no-print">
-        <div id="customOptions">
-            <div class="input-grid"></div>
-        </div>
-
-        <div class="button-group">
-            <button class="btn-primary" onclick="generateProgram()">Update Table</button>
-            <button class="btn-outline" onclick="resetProgram()">Reset All</button>
+        <div id="presetContent">
+            <div class="muted" style="text-align: center; padding: 40px; color: var(--text-muted);">Select a protocol and click "Load Program" to begin.</div>
         </div>
     </div>
 
-    <table id="programTable">
-        <thead>
-            <tr>
-                <th>Day</th>
-                <th>Run/Walk Ratio</th>
-                <th>Details</th>
-            </tr>
-        </thead>
-        <tbody></tbody>
-    </table>
+    <div id="custom-view" class="tab-content hidden">
+        <div class="resource-box no-print">
+            <strong>Custom Build:</strong> Manually input your specific run/walk intervals.
+        </div>
+        <div class="input-grid no-print" id="customInputContainer"></div>
+        <div class="button-group no-print">
+            <button class="btn-primary" onclick="generateCustomTable()">Update Table</button>
+            <button class="btn-outline" onclick="resetCustom()">Reset All</button>
+        </div>
+        <div id="customTableWrapper">
+            <table id="customTable" class="hidden">
+                <thead>
+                    <tr><th>Day</th><th>Run / Walk Ratio</th><th>Details</th></tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
 
-    <div id="recommendationsSection" class="no-print">
-        <hr style="margin: 30px 0; border: 0; border-top: 1px solid var(--border);">
-        <h2>Clinical Recommendations</h2>
-        <textarea id="recommendations">This program assists with load management to return to your running baseline.
-
-Recommendations:
+    <div id="notesSection" style="margin-top:30px;">
+        <hr class="no-print" style="border:0; border-top:1px solid var(--border); margin:20px 0;">
+        <h3 style="margin-bottom:5px;">Clinical Recommendations</h3>
+        <textarea id="clinNotes">
 • Walk/Run Program: 
-• Increasing cadence: 
 • Surfaces: 
-• Exercises: Daily 8-10 reps x 3 sets
-• Pain Threshold (0-2/10): 
+• Pain Threshold: Keep under 2/10
 • Additional Notes:</textarea>
-        <button class="btn-primary" onclick="generateFormal()">Finalize Recommendations</button>
-    </div>
-
-    <div id="formalRecommendations"></div>
-    
-    <div id="finalActions" class="button-group hidden no-print" style="margin-top: 20px;">
-        <button class="btn-success" onclick="window.print()">Print This Plan</button>
-        <button class="btn-outline" onclick="backToEditor()">Edit Details</button>
-        <button class="btn-outline" onclick="resetProgram()">Reset All</button>
+        <div class="button-group no-print">
+            <button class="btn-primary" style="width:100%;" onclick="window.print()">Print Selected Weeks</button>
+        </div>
     </div>
 </div>
 
 <script>
-    const daysCount = 5;
-    const inputContainer = document.querySelector('.input-grid');
+const PROGRAMS = {
+        minorInjury: {
+            title: 'Minor Injury Program',
+            weeks: 3,
+            data: {
+                1: [{d:'Day 1', t:10, r:1, w:1}, {d:'Day 2', t:15, r:1, w:1}, {d:'Day 3', t:20, r:1, w:1}, {d:'Day 4', t:25, r:1, w:1}, {d:'Day 5', t:30, r:1, w:1}],
+                2: [{d:'Day 1', t:20, r:2, w:1}, {d:'Day 2', t:30, r:2, w:1}, {d:'Day 3', t:20, r:3, w:1}, {d:'Day 4', t:30, r:3, w:1}, {d:'Day 5', t:20, r:4, w:1}],
+                3: [{d:'Day 1', t:30, r:4, w:1}, {d:'Day 2', t:20, r:9, w:1}, {d:'Day 3', t:30, r:9, w:1}, {d:'Day 4', t:30, r:14, w:1}, {d:'Day 5', t:30, r:30, w:0}]
+            }
+        },
+        eliteAthlete: {
+            title: 'Elite Athlete Program',
+            weeks: 2,
+            data: {
+                1: [{d:'Day 1', t:10, r:1, w:1}, {d:'Day 2', t:15, r:2, w:1}, {d:'Day 3', t:20, r:3, w:1}, {d:'Day 4', t:25, r:4, w:1}, {d:'Day 5', t:30, r:9, w:1}],
+                2: [{d:'Day 1', t:35, r:9, w:1}, {d:'Day 2', t:45, r:14, w:1}, {d:'Day 3', t:20, r:20, w:0}, {d:'Day 4', t:50, r:9, w:1}, {d:'Day 5', t:60, r:14, w:1}]
+            }
+        },
+        majorInjury: {
+            title: 'Major Injury Program',
+            weeks: 8,
+            data: {
+                1: [{d:'Day 1', t:6, r:1, w:1}, {d:'Day 2', t:8, r:1, w:1}, {d:'Day 3', t:10, r:1, w:1}, {d:'Day 4', t:12, r:1, w:1}, {d:'Day 5', t:14, r:1, w:1}],
+                2: [{d:'Day 1', t:16, r:1, w:1}, {d:'Day 2', t:18, r:1, w:1}, {d:'Day 3', t:20, r:1, w:1}, {d:'Day 4', t:22, r:1, w:1}, {d:'Day 5', t:24, r:1, w:1}],
+                3: [{d:'Day 1', t:26, r:1, w:1}, {d:'Day 2', t:28, r:1, w:1}, {d:'Day 3', t:30, r:1, w:1}, {d:'Day 4', t:9, r:2, w:1}, {d:'Day 5', t:12, r:2, w:1}],
+                4: [{d:'Day 1', t:15, r:2, w:1}, {d:'Day 2', t:18, r:2, w:1}, {d:'Day 3', t:21, r:2, w:1}, {d:'Day 4', t:24, r:2, w:1}, {d:'Day 5', t:27, r:2, w:1}],
+                5: [{d:'Day 1', t:30, r:2, w:1}, {d:'Day 2', t:12, r:3, w:1}, {d:'Day 3', t:16, r:3, w:1}, {d:'Day 4', t:20, r:3, w:1}, {d:'Day 5', t:24, r:3, w:1}],
+                6: [{d:'Day 1', t:28, r:3, w:1}, {d:'Day 2', t:32, r:3, w:1}, {d:'Day 3', t:10, r:4, w:1}, {d:'Day 4', t:15, r:4, w:1}, {d:'Day 5', t:20, r:4, w:1}],
+                7: [{d:'Day 1', t:25, r:4, w:1}, {d:'Day 2', t:30, r:4, w:1}, {d:'Day 3', t:10, r:9, w:1}, {d:'Day 4', t:20, r:9, w:1}, {d:'Day 5', t:30, r:9, w:1}],
+                8: [{d:'Day 1', t:15, r:14, w:1}, {d:'Day 2', t:30, r:14, w:1}, {d:'Day 3', t:20, r:20, w:0}, {d:'Day 4', t:25, r:25, w:0}, {d:'Day 5', t:30, r:30, w:0}]
+            }
+        }
+    };
 
-    function initInputs() {
-        inputContainer.innerHTML = '';
-        for (let i = 1; i <= daysCount; i++) {
-            inputContainer.innerHTML += `
+    function switchTab(tabId) {
+        document.querySelectorAll('.tab-content').forEach(c => c.classList.add('hidden'));
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.getElementById(tabId).classList.remove('hidden');
+        if(tabId === 'preset-view') document.getElementById('btn-preset').classList.add('active');
+        else document.getElementById('btn-custom').classList.add('active');
+    }
+
+    function renderPreset() {
+        const key = document.getElementById('profile').value;
+        const prog = PROGRAMS[key];
+        const container = document.getElementById('presetContent');
+        container.innerHTML = `<h2 style="color:var(--primary);">${prog.title}</h2>`;
+        
+        for(let i=1; i<=prog.weeks; i++) {
+            const weekData = prog.data[i];
+            let rows = weekData.map(row => `
+                <tr>
+                    <td>${row.d}</td>
+                    <td>${row.t} min total</td>
+                    <td>${row.w === 0 ? 'Continuous Run' : row.r + 'm run / ' + row.w + 'm walk'}</td>
+                </tr>
+            `).join('');
+
+            const div = document.createElement('div');
+            div.className = 'prog-card';
+            div.innerHTML = `
+                <div class="prog-head" onclick="this.parentElement.classList.toggle('open')">
+                    Week ${i} <span>Expand +</span>
+                </div>
+                <div class="prog-body">
+                    <table>
+                        <thead><tr><th>Day</th><th>Duration</th><th>Ratio</th></tr></thead>
+                        <tbody>${rows}</tbody>
+                    </table>
+                </div>`;
+            container.appendChild(div);
+        }
+    }
+
+    function resetPreset() {
+        document.getElementById('presetContent').innerHTML = `<div class="muted" style="text-align: center; padding: 40px; color: var(--text-muted);">Select a protocol and click "Load Program" to begin.</div>`;
+    }
+
+    function initCustomInputs() {
+        const container = document.getElementById('customInputContainer');
+        container.innerHTML = '';
+        for (let i = 1; i <= 5; i++) {
+            container.innerHTML += `
                 <div class="day-row">
                     <span>Day ${i}</span>
-                    <input type="number" id="day${i}Reps" value="3" min="1" placeholder="Reps">
-                    <input type="text" id="day${i}Ratio" value="1:1" placeholder="Ratio (e.g. 2:1)">
+                    <input type="number" id="cReps${i}" value="3" title="Reps">
+                    <input type="text" id="cRatio${i}" value="1:1" placeholder="e.g. 2:1">
                 </div>`;
         }
     }
 
-    function generateProgram() {
-        const table = document.getElementById("programTable");
-        const tbody = table.querySelector('tbody');
-        tbody.innerHTML = ""; 
-
-        for (let i = 1; i <= daysCount; i++) {
-            const reps = parseInt(document.getElementById(`day${i}Reps`).value) || 0;
-            const ratioStr = document.getElementById(`day${i}Ratio`).value;
-            const parts = ratioStr.split(":").map(Number);
-            
-            const run = parts[0] || 0;
-            const walk = parts[1] || 0;
-            const total = (run + walk) * reps;
-
-            const row = tbody.insertRow();
-            row.innerHTML = `
-                <td><strong>Day ${i}</strong></td>
-                <td>${run}m run / ${walk}m walk</td>
-                <td>${reps} reps — <small>Total: ${total} mins</small></td>
-            `;
+    function generateCustomTable() {
+        const tbody = document.querySelector("#customTable tbody");
+        tbody.innerHTML = "";
+        let hasData = false;
+        for(let i=1; i<=5; i++) {
+            const reps = document.getElementById(`cReps${i}`).value;
+            const ratio = document.getElementById(`cRatio${i}`).value;
+            if(ratio) {
+                hasData = true;
+                const parts = ratio.split(':');
+                const run = parts[0] || 0;
+                const walk = parts[1] || 0;
+                tbody.innerHTML += `<tr><td><strong>Day ${i}</strong></td><td>${run}m run / ${walk}m walk</td><td>${reps} reps</td></tr>`;
+            }
         }
-        table.style.display = "table";
+        if(hasData) document.getElementById("customTable").classList.remove('hidden');
     }
 
-    function generateFormal() {
-        generateProgram();
-        const text = document.getElementById('recommendations').value;
-        const formalDiv = document.getElementById('formalRecommendations');
-        formalDiv.innerHTML = `<h3>Plan Summary & Clinical Notes</h3>` + text.replace(/\n/g, "<br>");
-        formalDiv.style.display = 'block';
-        document.getElementById('editorSection').classList.add('hidden');
-        document.getElementById('recommendationsSection').classList.add('hidden');
-        document.getElementById('setupTitle').classList.add('hidden');
-        document.getElementById('finalActions').classList.remove('hidden');
-        // Hide the resource box on final view
-        document.querySelector('.resource-box').classList.add('hidden');
-    }
-
-    function backToEditor() {
-        document.getElementById('editorSection').classList.remove('hidden');
-        document.getElementById('recommendationsSection').classList.remove('hidden');
-        document.getElementById('setupTitle').classList.remove('hidden');
-        document.getElementById('finalActions').classList.add('hidden');
-        document.getElementById('formalRecommendations').style.display = 'none';
-        document.querySelector('.resource-box').classList.remove('hidden');
-    }
-
-    function resetProgram() {
-        if(confirm("Are you sure you want to reset all data?")) {
-            initInputs();
-            const table = document.getElementById("programTable");
-            table.querySelector('tbody').innerHTML = "";
-            table.style.display = "none";
-            backToEditor();
-            document.getElementById('recommendations').value = `This program assists with load management to return to your running baseline.\n\nRecommendations:\n• Walk/Run Program: \n• Increasing cadence: \n• Surfaces: \n• Exercises: Daily 8-10 reps x 3 sets\n• Pain Threshold (0/10): \n• Additional Notes:`;
+    function resetCustom() {
+        if(confirm("Clear all custom data?")) {
+            initCustomInputs();
+            document.getElementById("customTable").classList.add('hidden');
+            document.getElementById("clinNotes").value = "• Walk/Run Program: \n• Surfaces: \n• Pain Threshold: Keep under 2/10\n• Additional Notes:";
         }
     }
 
-    initInputs();
+    initCustomInputs();
 </script>
 
 </body>
