@@ -143,6 +143,17 @@
         width: 100%;
         white-space: pre-wrap; /* Maintains your line breaks/bullets */
         }
+        .stack-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.btn-full {
+    width: 100%;
+    display: block;
+}
     </style>
 </head>
 <body>
@@ -169,7 +180,6 @@
                     <option value="eliteAthlete">Elite Athlete (2 Weeks)</option>
                 </select>
                 <button class="btn-primary" onclick="renderPreset()">Load Program</button>
-                <button class="btn-outline" onclick="resetPreset()">Reset Selection</button>
             </div>
         </div>
         <div id="presetContent">
@@ -184,7 +194,6 @@
         <div class="input-grid no-print" id="customInputContainer"></div>
         <div class="button-group no-print">
             <button class="btn-primary" onclick="generateCustomTable()">Update Table</button>
-            <button class="btn-outline" onclick="resetCustom()">Reset All</button>
         </div>
         <div id="customTableWrapper">
             <table id="customTable" class="hidden">
@@ -196,17 +205,24 @@
         </div>
     </div>
 
-    <div id="notesSection" style="margin-top:30px;">
-        <hr class="no-print" style="border:0; border-top:1px solid var(--border); margin:20px 0;">
-        <h3 style="margin-bottom:5px;">Clinical Recommendations</h3>
-        <textarea id="clinNotes">
+<div id="notesSection" style="margin-top:30px;">
+    <hr class="no-print" style="border:0; border-top:1px solid var(--border); margin:20px 0;">
+    <h3 style="margin-bottom:5px;">Clinical Recommendations</h3>
+    
+    <textarea id="clinNotes">
 • Warm-up and cool down runs with a 5 minute walk 
 • Run at least 4 times per week
 • Depending on your symptoms: Repeat the same session, skip 1-2 sessions...etc
 • Cross train via bike, elliptical and start on a flat surface initially</textarea>
-        <div class="button-group no-print">
-            <button class="btn-primary" style="width:100%;" onclick="window.print()">Print Selected Weeks</button>
-        </div>
+
+    <div class="stack-group no-print">
+        <button class="btn-primary btn-full" onclick="window.print()">
+            Print Selected Weeks
+        </button>
+        
+        <button class="btn-outline btn-full" onclick="resetPreset()">
+            Reset Selection
+        </button>
     </div>
 </div>
 
