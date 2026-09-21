@@ -13,12 +13,13 @@ Physical therapist, clinical instructor & developer.
 
 ### 📝 [About Me](#)
 
-Walden is a highly experienced physical therapist and clinical instructor specializing in sports rehabilitation for runners and climbers. With over a decade in the industry, his approach focuses on bridging the gap between clinical science and functional movement.
+Walden is a highly experienced physical therapist and clinical instructor specializing in sports rehabilitation for runners and climbers. With over a decade in the industry, his approach focuses on bridging the gap between clinical science and functional movement. Apart from treating athletes he also works as a concierge physical therapist for individuals living with stroke, traumatic brain injury, and post-surgical complications.
 
 Professional Background
-Education: Holds two Master’s degrees from UBC (Pulmonary Rehabilitation and Physical Therapy).
+Education: Holds two Master’s degrees from UBC (Pulmonary Rehabilitation 2017 and Physical Therapy 2019).
 
-Clinical Experience: Started in 2015 as a kinesiologist, followed by years in acute hospital care (Critical Care, Orthopedics, and Emergency) and geriatric precepting.
+Clinical Experience: Started in 2015 as a kinesiologist, followed by years in acute hospital care (Critical Care, Orthopedics, and Emergency)
+Teaching Experience: Preceptor and educator since 2019 with taking several physical therapy students yearly
 
 Professional and Community Involvement: He is a clinical instructor with The Running Clinic and has worked closely with the YYC Run Crew and Bolder Climbing Community.
 
